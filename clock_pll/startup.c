@@ -39,6 +39,7 @@ void reset_handler(void)
 	set_sysclk_pll();
 
 	main();
+	symbols();
 }
 
 /**
@@ -95,4 +96,14 @@ void set_sysclk_pll(void)
 	//wait
 	while (READ_BIT(RCC_BASE + RCC_CFGR_OFFSET, SWS_1_BIT) != 1 || READ_BIT(RCC_BASE + RCC_CFGR_OFFSET, SWS_0_BIT) != 0)
 		;
+}
+void symbols(void)
+{
+	uint32_t array[6];
+	array[0]=0xa;
+	array[1]=0xb;
+	array[2]=0xc;
+	array[3]=0xd;
+	array[4]=0xe;
+	array[5]=0xf;
 }
